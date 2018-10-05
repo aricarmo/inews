@@ -7,5 +7,6 @@ target 'iNews' do
   pod 'SwiftyJSON'
   pod 'ReachabilitySwift'
   pod 'SDWebImage'
+  pod 'SimpleImageViewer', '~> 1.1.1'
 
 end
