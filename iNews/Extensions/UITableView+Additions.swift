@@ -18,6 +18,11 @@ extension UITableView{
         case newsText = "NewsTextTableViewCell"
     }
     
+    enum EmptyListType {
+        case offline
+        case news
+    }
+    
     func registerCells(forFieldTypes types: [CellType]){
         for type in types{
             registerCellForType(type)
@@ -26,5 +31,22 @@ extension UITableView{
     
     func registerCellForType(_ type: CellType){
         self.register(UINib(nibName: type.rawValue, bundle: nil), forCellReuseIdentifier: type.rawValue)
+    }
+    
+    func setEmpty(for type: EmptyListType, hasData: Bool){
+        
+        if hasData {
+            self.backgroundView = nil
+            return
+        }
+        let emptyList = EmptyListView()
+        if type == .offline{
+            emptyList.setup(withTitle: "Sem conexão", text: "Não foi possível se conectar à internet.", imageName: "noConnection")
+        }
+        else{
+            emptyList.setup(withTitle: "Nenhum registro", text: "Esta lista está vazia")
+        }
+        
+        self.backgroundView = emptyList
     }
 }

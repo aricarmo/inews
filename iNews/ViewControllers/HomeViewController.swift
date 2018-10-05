@@ -15,6 +15,7 @@ final class HomeViewController: BaseViewController {
     private var news = [News]()
     private var selectedNews: News?
     private var refreshControl = UIRefreshControl()
+    private var hasData: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +37,22 @@ final class HomeViewController: BaseViewController {
     }
     
     @objc private func getNews(){
+        
+        guard reachability.connection != .none else{
+            tableView.setEmpty(for: .offline, hasData: false)
+            self.hasData = false
+            return
+        }
+        
         refreshControl.beginRefreshing()
         ServiceNews.getNewsForCover { [unowned self](data, error) in
             self.refreshControl.endRefreshing()
             if let error = error{
-                print("Erro ao obter dados: \(error.localizedDescription)")
+                self.showMessage("Ops... Algo deu errado", mensagem: error.localizedDescription, completion: nil)
             }
             else{
                 self.news = data
+                self.hasData = !self.news.isEmpty
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -67,6 +76,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let type: UITableView.EmptyListType = reachability.connection == .none ? .offline : .news
+        tableView.setEmpty(for: type, hasData: self.hasData)
         return news.count
     }
     
