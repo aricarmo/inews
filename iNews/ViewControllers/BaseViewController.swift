@@ -7,18 +7,18 @@
 //
 
 import UIKit
+import Reachability
 
 class BaseViewController: UIViewController {
     
     var currentTitle: String?
-
+    let reachability = Reachability()!
+    
+    //MARK: - Overrides
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-    }
-    
-    func setupInterface(){
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -30,6 +30,12 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setTitleView(currentTitle)
+    }
+    
+    //MARK: - Interface
+    
+    func setupInterface(){
+        
     }
     
     private func setTitleView(_ text: String?){
@@ -46,5 +52,4 @@ class BaseViewController: UIViewController {
         lblTitle.sizeToFit()
         navigationItem.titleView = lblTitle
     }
-
 }
