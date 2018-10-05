@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OgloboCondApp-Regular.ttf">
+            <string>OgloboAppCondensed</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsTitleTableViewCell" rowHeight="210" id="uNr-N2-W9W" userLabel="NewsTitle" customClass="NewsTableViewCell" customModule="iNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uNr-N2-W9W" id="tVV-Tg-GKw">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="209.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Título - Apple: 33 milhões de pessoas ouviram o novo álbum dos U2" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuU-dg-exJ">
+                        <rect key="frame" x="18" y="13" width="339" height="79"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                        <color key="textColor" red="0.078431372549019607" green="0.14901960784313725" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se condenada, María Corina pode ser sentenciada a 16 anos de prisão. Não está claro se aguardará julgamento em liberdade" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRl-W0-ZBc">
+                        <rect key="frame" x="18" y="100" width="339" height="23"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.078390829265117645" green="0.14834116399288177" blue="0.23202463984489441" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7S-kt-s7b">
+                        <rect key="frame" x="18" y="148" width="339" height="26"/>
+                        <attributedString key="attributedText">
+                            <fragment content="POR GLOBO kjahsd kahsd kjhas kdjh asdkjh askdjh kasjdh kajsdh kajshd asd aksjdh ksajdhsda">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="11" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" text="04/10/18 - 15h02" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCv-fn-h6A">
+                        <rect key="frame" x="156" y="175" width="63.5" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="iDR-T4-Nnq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OgloboAppCondensed" family="Oglobo App Condensed" pointSize="12"/>
+                        <color key="textColor" red="0.39101129769999998" green="0.39099958540000002" blue="0.39100623130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-cn-MBA">
+                        <rect key="frame" x="145" y="179" width="9" height="9"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="9" id="fxw-rn-9KD"/>
+                            <constraint firstAttribute="height" constant="9" id="xXG-7N-NJo"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eRl-W0-ZBc" firstAttribute="leading" secondItem="tVV-Tg-GKw" secondAttribute="leadingMargin" constant="2" id="2vI-LB-1C2"/>
+                    <constraint firstItem="ZuU-dg-exJ" firstAttribute="leading" secondItem="tVV-Tg-GKw" secondAttribute="leadingMargin" constant="2" id="8SB-SC-dlv"/>
+                    <constraint firstItem="RCv-fn-h6A" firstAttribute="centerX" secondItem="e7S-kt-s7b" secondAttribute="centerX" id="8mf-5S-Gqh"/>
+                    <constraint firstItem="eRl-W0-ZBc" firstAttribute="top" secondItem="ZuU-dg-exJ" secondAttribute="bottom" constant="8" id="9no-UW-Wo3"/>
+                    <constraint firstItem="RCv-fn-h6A" firstAttribute="leading" secondItem="4kh-cn-MBA" secondAttribute="trailing" constant="2" id="LYE-mK-Bbb"/>
+                    <constraint firstItem="RCv-fn-h6A" firstAttribute="top" secondItem="e7S-kt-s7b" secondAttribute="bottom" constant="1" id="Nfe-gn-IMJ"/>
+                    <constraint firstItem="4kh-cn-MBA" firstAttribute="centerY" secondItem="RCv-fn-h6A" secondAttribute="centerY" constant="0.5" id="dbj-u5-fLY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ZuU-dg-exJ" secondAttribute="trailing" constant="2" id="e4O-mL-NQ6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="e7S-kt-s7b" secondAttribute="trailing" constant="2" id="hyr-OG-dUF"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RCv-fn-h6A" secondAttribute="bottom" constant="8" id="jfL-kY-ypq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eRl-W0-ZBc" secondAttribute="trailing" constant="2" id="mCg-Z1-pqb"/>
+                    <constraint firstItem="ZuU-dg-exJ" firstAttribute="top" secondItem="tVV-Tg-GKw" secondAttribute="topMargin" constant="2" id="oDm-GZ-IaD"/>
+                    <constraint firstItem="e7S-kt-s7b" firstAttribute="leading" secondItem="tVV-Tg-GKw" secondAttribute="leadingMargin" constant="2" id="rVM-49-0ht"/>
+                    <constraint firstItem="e7S-kt-s7b" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eRl-W0-ZBc" secondAttribute="bottom" constant="25" id="ucQ-mZ-17A"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="lblAuthor" destination="e7S-kt-s7b" id="AHq-yY-qTl"/>
+                <outlet property="lblDateTime" destination="RCv-fn-h6A" id="3w2-s7-QpV"/>
+                <outlet property="lblSubtitle" destination="eRl-W0-ZBc" id="pxW-7G-Fiv"/>
+                <outlet property="lblTitle" destination="ZuU-dg-exJ" id="5z2-jM-6Ex"/>
+            </connections>
+            <point key="canvasLocation" x="136.80000000000001" y="141.22938530734635"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="clock" width="9" height="9"/>
+    </resources>
+</document>

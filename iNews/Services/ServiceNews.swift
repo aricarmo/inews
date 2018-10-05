@@ -12,7 +12,13 @@ import SwiftyJSON
 
 final class ServiceNews{
     
-    static func getNewsForCover(_ completion: @escaping ([News], Error?) -> Void){
+    /**
+     Obtém a lista de notícias da Home
+     - Parameter completion: O callback de retorno.
+     - Parameter news: Um array de objetos New retornada pela API.
+     - Parameter error: Erro retornado pela API (caso ocorra).
+     */
+    static func getNewsForCover(_ completion: @escaping (_ news: [News], _ error: Error?) -> Void){
         guard let url = URL(string: Constants.URLs.APITeste) else{ return }
         
         var resultNews = [News]()

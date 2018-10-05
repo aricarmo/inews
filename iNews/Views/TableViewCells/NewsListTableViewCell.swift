@@ -25,7 +25,13 @@ final class NewsListTableViewCell: UITableViewCell {
     
     func setup(with news: News){
         lblTitle.text = news.source.name.uppercased()
-        lblSubtitle.attributedText = NSAttributedString(string: news.title, attributes: lblSubtitle.attributedText!.attributes(at: 0, effectiveRange: nil))
+        
+        let font = UIFont(name: "OgloboAppCondensed-Semibold", size: 17.0)!
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.75
+        paragraphStyle.lineBreakMode = .byWordWrapping
+        
+        lblSubtitle.attributedText = NSAttributedString(string: news.title, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.font: font])
         
         if let urlString = news.imageURL, let url = URL(string: urlString){
             imgViewNews.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"), options: [], completed: nil)

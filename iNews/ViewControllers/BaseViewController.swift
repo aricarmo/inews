@@ -9,6 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    var currentTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +21,30 @@ class BaseViewController: UIViewController {
         
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = " "
+        self.setTitleView(nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setTitleView(currentTitle)
+    }
+    
+    private func setTitleView(_ text: String?){
+        
+        if text == nil{
+            navigationItem.titleView = nil
+            return
+        }
+        
+        let lblTitle = UILabel()
+        lblTitle.text = text
+        lblTitle.textColor = UIColor.white
+        lblTitle.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20.0)!
+        lblTitle.sizeToFit()
+        navigationItem.titleView = lblTitle
     }
 
 }

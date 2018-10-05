@@ -13,6 +13,7 @@ final class HomeViewController: BaseViewController {
     @IBOutlet weak private var tableView: UITableView!
     
     private var news = [News]()
+    private var selectedNews: News?
     private var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -22,11 +23,16 @@ final class HomeViewController: BaseViewController {
     
     override func setupInterface() {
         super.setupInterface()
-        tableView.register(UINib(nibName: "NewsListTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsListTableViewCell")
-        tableView.register(UINib(nibName: "FeaturedNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "FeaturedNewsTableViewCell")
+        currentTitle = "HOME"
+        tableView.registerCells(forFieldTypes: [.featuredNews, .newsList])
         tableView.tableFooterView = UIView(frame: .zero)
         refreshControl.addTarget(self, action: #selector(self.getNews), for: .valueChanged)
         tableView.refreshControl = refreshControl
+        
+        //3D Touch
+        if traitCollection.forceTouchCapability == .available{
+            registerForPreviewing(with: self, sourceView: tableView)
+        }
     }
     
     @objc private func getNews(){
@@ -44,8 +50,13 @@ final class HomeViewController: BaseViewController {
             }
         }
     }
+    
+    func showNews(news: News){
+        guard let newsVC = storyboard?.instantiateViewController(withIdentifier: "newsVC") as? NewsViewController else { return }
+        newsVC.news = news
+        self.navigationController?.pushViewController(newsVC, animated: true)
+    }
 }
-
 
 //MARK: - TableView DataSource/Delegate
 
@@ -92,5 +103,32 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         }
         
         return 81.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.showNews(news: news[indexPath.row])
+    }
+}
+
+//MARK: - PreviewingDelegate
+extension HomeViewController: UIViewControllerPreviewingDelegate{
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = tableView.indexPathForRow(at: location), let newsVC = storyboard?.instantiateViewController(withIdentifier: "previewNewsVC") as? PreviewNewsViewController else{
+            return nil
+        }
+        
+        selectedNews = self.news[indexPath.row]
+        newsVC.currentNews = selectedNews
+        newsVC.preferredContentSize = CGSize(width: 0.0, height: 400.0)
+        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+        return newsVC
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        guard let news = selectedNews else { return }
+        self.showNews(news: news)
     }
 }

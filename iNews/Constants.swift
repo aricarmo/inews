@@ -16,12 +16,9 @@ struct Constants {
     
     struct Colors {
         static let NavigationBar = UIColor(red: 0/255, green: 90/255, blue: 150/255, alpha: 1)
-        static let MenuGray = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         static let BlueText = UIColor(red: 25/255, green: 51/255, blue: 76/255, alpha: 1)
         static let BlueAuthorPor = UIColor(red: 119/255, green: 119/255, blue: 119/255, alpha: 1)
         static let BlueAuthorName = UIColor(red: 30/255, green: 150/255, blue: 200/255, alpha: 1)
-        static let BlueEditoriaTitle = UIColor(red: 94/255, green: 113/255, blue: 127/255, alpha: 1)
-        static let BlueUsername = UIColor(red: 36/255, green: 112/255, blue: 167/255, alpha: 1)
     }
     
     struct URLs{
